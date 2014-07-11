@@ -1,0 +1,14 @@
+﻿insert into user (name,password,email,registeDate,mark)
+values('test','1234','','2010-12-10','');
+
+insert into problemclassify(id,problemType,createDate)
+values(1,'normal','2010-12-29');
+insert into problemclassify(id,problemType,createDate)
+values(2,'middle','2010-12-29');
+insert into problemclassify values(4,'middle','2010-1-1');
+
+insert into problemlimit(pid,timeLimit,memoryLimit)
+values(1,1000,8705552);
+
+delete from problemlimit
+where memoryLimit=30000

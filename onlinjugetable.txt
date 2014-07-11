@@ -1,0 +1,126 @@
+acceptcode
++----------+---------------+------+-----+---------+----------------+
+| Field    | Type          | Null | Key | Default | Extra          |
++----------+---------------+------+-----+---------+----------------+
+| aid      | int(11)       | NO   | PRI | NULL    | auto_increment |
+| pid      | int(11)       | NO   | MUL | NULL    |                |
+| uid      | int(11)       | NO   | MUL | NULL    |                |
+| code     | varchar(5000) | NO   |     | NULL    |                |
+| passDate | datetime      | NO   |     | NULL    |                |
++----------+---------------+------+-----+---------+----------------+
+
+ admin
++-------------+----------+------+-----+---------+----------------+
+| Field       | Type     | Null | Key | Default | Extra          |
++-------------+----------+------+-----+---------+----------------+
+| id          | int(11)  | NO   | PRI | NULL    | auto_increment |
+| name        | char(20) | YES  |     |         |                |
+| password    | char(32) | NO   |     | NULL    |                |
+| privilege   | int(11)  | YES  |     | 1       |                |
+| email       | char(30) | YES  |     |         |                |
+| registeDate | datetime | NO   |     | NULL    |                |
+| mark        | char(50) | YES  |     |         |                |
++-------------+----------+------+-----+---------+----------------+
+
+ errocode
++----------+---------------+------+-----+---------+----------------+
+| Field    | Type          | Null | Key | Default | Extra          |
++----------+---------------+------+-----+---------+----------------+
+| eid      | int(11)       | NO   | PRI | NULL    | auto_increment |
+| pid      | int(11)       | NO   | MUL | NULL    |                |
+| uid      | int(11)       | NO   | MUL | NULL    |                |
+| code     | varchar(5000) | NO   |     | NULL    |                |
+| jugeDate | datetime      | NO   |     | NULL    |                |
++----------+---------------+------+-----+---------+----------------+
+
+ logininfo
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| uid       | int(11)  | NO   | MUL | NULL    |       |
+| ipaddress | char(20) | NO   |     | NULL    |       |
+| loginTime | datetime | NO   |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+ 
+ problem
++------------+---------------+------+-----+---------+----------------+
+| Field      | Type          | Null | Key | Default | Extra          |
++------------+---------------+------+-----+---------+----------------+
+| id         | int(11)       | NO   | PRI | NULL    | auto_increment |
+| title      | varchar(40)   | YES  |     |         |                |
+| content    | varchar(8000) | YES  |     | NULL    |                |
+| createDate | datetime      | NO   |     | NULL    |                |
+| owner      | int(11)       | NO   |     | NULL    |                |
++------------+---------------+------+-----+---------+----------------+
+
+ problemclassify
++-------------+----------+------+-----+---------+-------+
+| Field       | Type     | Null | Key | Default | Extra |
++-------------+----------+------+-----+---------+-------+
+| id          | int(11)  | NO   |     | NULL    |       |
+| problemType | char(20) | NO   |     | NULL    |       |
+| createDate  | datetime | NO   |     | NULL    |       |
++-------------+----------+------+-----+---------+-------+
+
+ problemlimit
++-----------------+------------+------+-----+---------+-------+
+| Field           | Type       | Null | Key | Default | Extra |
++-----------------+------------+------+-----+---------+-------+
+| pid             | int(11)    | NO   | MUL | NULL    |       |
+| timeLimit       | mediumtext | NO   |     | NULL    |       |
+| memoryLimit     | mediumtext | NO   |     | NULL    |       |
+| submitDateLimit | datetime   | YES  |     | NULL    |       |
++-----------------+------------+------+-----+---------+-------+
+
+ submitstate
++------------+------------+------+-----+---------+----------------+
+| Field      | Type       | Null | Key | Default | Extra          |
++------------+------------+------+-----+---------+----------------+
+| id         | int(11)    | NO   | PRI | NULL    | auto_increment |
+| cid        | int(11)    | NO   |     | NULL    |                |
+| state      | char(20)   | YES  |     |         |                |
+| codeType   | char(10)   | YES  |     | java    |                |
+| memory     | mediumtext | NO   |     | NULL    |                |
+| runtime    | mediumtext | NO   |     | NULL    |                |
+| submitDate | datetime   | NO   |     | NULL    |                |
+| codeLength | int(11)    | YES  |     | 0       |                |
++------------+------------+------+-----+---------+----------------+
+ 
+ submitstatistic
++-------------+---------+------+-----+---------+-------+
+| Field       | Type    | Null | Key | Default | Extra |
++-------------+---------+------+-----+---------+-------+
+| id          | int(11) | NO   |     | NULL    |       |
+| submitCount | int(11) | YES  |     | 0       |       |
+| passCount   | int(11) | YES  |     | 0       |       |
++-------------+---------+------+-----+---------+-------+
+
+ testdata
++--------+----------+------+-----+---------+----------------+
+| Field  | Type     | Null | Key | Default | Extra          |
++--------+----------+------+-----+---------+----------------+
+| id     | int(11)  | NO   | PRI | NULL    | auto_increment |
+| pid    | int(11)  | NO   | MUL | NULL    |                |
+| input  | char(50) | NO   |     | NULL    |                |
+| output | char(50) | NO   |     | NULL    |                |
++--------+----------+------+-----+---------+----------------+
+ user
++-------------+----------+------+-----+---------+----------------+
+| Field       | Type     | Null | Key | Default | Extra          |
++-------------+----------+------+-----+---------+----------------+
+| id          | int(11)  | NO   | PRI | NULL    | auto_increment |
+| name        | char(20) | YES  |     |         |                |
+| password    | char(32) | NO   |     | NULL    |                |
+| email       | char(30) | YES  |     |         |                |
+| registeDate | datetime | NO   |     | NULL    |                |
+| mark        | char(50) | YES  |     |         |                |
++-------------+----------+------+-----+---------+----------------+
+ usergroup
++-------------+----------+------+-----+---------+----------------+
+| Field       | Type     | Null | Key | Default | Extra          |
++-------------+----------+------+-----+---------+----------------+
+| id          | int(11)  | NO   | PRI | NULL    | auto_increment |
+| cretateDate | datetime | NO   |     | NULL    |                |
+| owner       | int(11)  | NO   |     | NULL    |                |
+| mark        | char(50) | YES  |     |         |                |
++-------------+----------+------+-----+---------+----------------+
